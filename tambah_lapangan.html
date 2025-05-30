@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Tambah Lapangan</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+  <style>
+    body {
+      font-family: 'Poppins', sans-serif;
+      margin: 0;
+      padding: 0;
+      background: linear-gradient(135deg, #2897ff, #005fbb);
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .form-container {
+      background: white;
+      padding: 30px;
+      border-radius: 12px;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+      max-width: 600px;
+      width: 90%;
+    }
+
+    h2 {
+      text-align: center;
+      margin-bottom: 25px;
+      color: #2897ff;
+    }
+
+    label {
+      display: block;
+      margin-top: 15px;
+      font-weight: 600;
+    }
+
+    input[type="text"],
+    input[type="number"],
+    input[type="time"],
+    textarea,
+    input[type="file"] {
+      width: 100%;
+      padding: 10px;
+      margin-top: 5px;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      font-size: 14px;
+    }
+
+    textarea {
+      resize: vertical;
+    }
+
+    button {
+      width: 100%;
+      padding: 12px;
+      margin-top: 20px;
+      background-color: #2897ff;
+      color: white;
+      border: none;
+      border-radius: 6px;
+      font-weight: bold;
+      cursor: pointer;
+      transition: background 0.3s ease;
+    }
+
+    button:hover {
+      background-color: #1c75d8;
+    }
+
+    .popup-container {
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      background: rgba(0, 0, 0, 0.5);
+      display: none;
+      align-items: center;
+      justify-content: center;
+      z-index: 1000;
+    }
+
+    .popup-box {
+      background: #2897ff;
+      color: white;
+      padding: 30px;
+      border-radius: 10px;
+      text-align: center;
+      width: 80%;
+      max-width: 400px;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+    }
+
+    .popup-box p {
+      margin-bottom: 20px;
+      font-size: 16px;
+    }
+
+    .popup-box button {
+      background: white;
+      color: #2897ff;
+      padding: 10px 30px;
+      border: none;
+      border-radius: 6px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    .batal-btn {
+      background-color: #ccc;
+      color: #000;
+      margin-top: 10px;
+    }
+
+    .batal-btn:hover {
+      background-color: #aaa;
+    }
+  </style>
+</head>
+<body>
+
+<div class="form-container">
+  <h2>Tambah Lapangan</h2>
+
+  <!-- Popup Notifikasi -->
+  <div id="popup" class="popup-container">
+    <div class="popup-box">
+      <p>Harap isi semua data terlebih dahulu.</p>
+      <button onclick="tutupPopup()">OK</button>
+    </div>
+  </div>
+
+  <form id="lapanganForm" action="../PHP/tambah_lapangan.php" method="POST" enctype="multipart/form-data" novalidate>
+
+    <label for="nama_lapangan">Nama Lapangan</label>
+    <input type="text" name="nama_lapangan" id="nama_lapangan" required />
+
+    <label for="alamat">Alamat</label>
+    <textarea name="alamat" id="alamat" rows="3" required></textarea>
+
+    <label for="harga">Harga per Jam</label>
+    <input type="number" name="harga" id="harga" required />
+
+    <label for="jam_buka">Jam Buka</label>
+    <input type="time" name="jam_buka" id="jam_buka" required />
+
+    <label for="jam_tutup">Jam Tutup</label>
+    <input type="time" name="jam_tutup" id="jam_tutup" required />
+
+    <label for="fasilitas">Fasilitas</label>
+    <textarea name="fasilitas" id="fasilitas" rows="2" required></textarea>
+
+    <label for="gambar">Upload Gambar</label>
+    <input type="file" name="gambar" id="gambar" accept="image/*" required />
+
+    <button type="submit">Simpan Lapangan</button>
+    <button type="button" class="batal-btn" onclick="window.location.href='beranda_pemilik.php'">Batal</button>
+  </form>
+</div>
+
+<script>
+  document.getElementById("lapanganForm").addEventListener("submit", function(event) {
+    const fields = [
+      "id_lapangan",
+      "nama_lapangan",
+      "alamat",
+      "harga",
+      "jam_buka",
+      "jam_tutup",
+      "fasilitas",
+      "gambar",
+      "pemilik"
+    ];
+
+    let isValid = true;
+    fields.forEach(function(field) {
+      const value = document.getElementById(field).value;
+      if (!value || value.trim() === "") {
+        isValid = false;
+      }
+    });
+
+    if (!isValid) {
+      event.preventDefault();
+      document.getElementById("popup").style.display = "flex";
+    }
+  });
+
+  function tutupPopup() {
+    document.getElementById("popup").style.display = "none";
+  }
+</script>
+
+</body>
+</html>

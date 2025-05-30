@@ -1,0 +1,719 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Pemesanan Lapangan Futsal</title>
+  <link rel="stylesheet" href="/CSS/styles.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      margin: 0;
+      background: #ffffff;
+      color: #ffe609;
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+    }
+
+    .custom-header {
+    background: linear-gradient(90deg, #2196f3, #1e88e5);
+    color: white;
+    padding: 10px 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 20px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    }
+
+    .header-left {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    }
+
+    .header-logo {
+    width: 65px;
+    height: 65px;
+    border-radius: 50%;
+    background: white;
+    padding: 5px;
+    }
+
+    .custom-header h1 {
+    margin: 0;
+    font-size: 1.9rem;
+    font-weight: 700;
+    }
+
+    .header-tagline {
+    flex: 1;
+    text-align: center;
+    font-size: 1.5rem;
+    font-weight: 900;
+    }
+
+    .header-buttons {
+    display: flex;
+    gap: 15px;
+    }
+
+    .header-buttons button {
+    background: transparent;
+    border: 2px solid white;
+    color: white;
+    font-weight: 600;
+    padding: 8px 22px;
+    border-radius: 25px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    }
+
+    .header-buttons button:hover {
+    background: white;
+    color: #1e88e5;
+    box-shadow: 0 4px 8px rgba(255, 255, 255, 0.2);
+    transform: translateY(-2px);
+    }
+
+    @media (max-width: 768px) {
+    .custom-header {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .header-tagline {
+        order: 3;
+    }
+
+    .header-buttons {
+        order: 2;
+    }
+    }
+
+    
+
+    .logo {
+      width: 80px;
+      height: 80px;
+      border-radius: 50%;
+      margin-right: 15px;
+    }
+
+    main {
+      flex: 1;
+      padding: 40px 20px 60px;
+      max-width: 1100px;
+      margin: 0 auto;
+      width: 100%;
+    }
+
+.search-form {
+  background: #ffffffee; /* biru */
+  padding: 30px;
+  border-radius: 16px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+  max-width: 700px;
+  margin: -40px auto 50px auto; /* ini yang membuat dia naik menutupi gambar */
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+  justify-content: center;
+  position: relative;
+  z-index: 10;
+}
+
+
+.search-form input[type="text"] {
+  flex: 1 1 250px;
+  padding: 14px 18px;
+  border: 2px solid #7d7d7d;
+  border-radius: 10px;
+  font-size: 1rem;
+  background: #ffffff;
+  color: #333;
+  transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+
+    .search-form input[type="text"]:focus {
+      border-color: #1188ff;
+      outline: none;
+      box-shadow: 0 0 0 4px rgba(40, 151, 255, 0.1);
+    }
+
+    .search-form button {
+      background: #0887fd;
+      border: none;
+      color: rgb(255, 253, 253);
+      font-weight: 600;
+      font-size: 1rem;
+      padding: 14px 32px;
+      border-radius: 30px;
+      cursor: pointer;
+      transition: background 0.3s, transform 0.2s;
+    }
+
+    .search-form button:hover {
+      background: #0059ff;
+      transform: scale(1.05);
+    }
+
+    .fields-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 25px;
+    }
+
+    .field-card {
+      background: white;
+      border-radius: 15px;
+      overflow: hidden;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
+      display: flex;
+      flex-direction: column;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .field-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 12px 24px rgba(30, 136, 229, 0.2);
+    }
+
+    .field-image {
+      height: 160px;
+      background-size: cover;
+      background-position: center;
+    }
+
+    .field-info {
+      padding: 20px;
+    }
+
+    .field-name {
+      font-size: 1.25rem;
+      font-weight: 700;
+      margin-bottom: 8px;
+      color: #1e88e5;
+    }
+
+    .field-location {
+      font-size: 1rem;
+      color: #555;
+      margin-bottom: 12px;
+    }
+
+    .field-price {
+      font-size: 1.2rem;
+      font-weight: 600;
+      color: #43a047;
+    }
+
+    footer.futsal-footer {
+      background-color: #ffffff;
+      padding: 40px 20px;
+      color: #444;
+      font-size: 14px;
+      border-top: 1px solid #eee;
+    }
+
+    .footer-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 40px 20px;
+    gap: 30px;
+    }
+
+    .footer-col {
+    flex: 1;
+    min-width: 180px;
+    }
+
+    .footer-col h4 {
+    font-weight: bold;
+    margin-bottom: 12px;
+    color: #111;
+    }
+
+    .footer-col p, .footer-col a {
+    margin: 6px 0;
+    color: #666;
+    text-decoration: none;
+    font-size: 14px;
+    }
+
+    .footer-col a:hover {
+    color: #2897ff;
+    }
+
+    .footer-logo {
+    width: 100px; /* Perbesar sedikit dari sebelumnya */
+    transform: translateY(-90px); /* Geser logo ke atas */
+    }
+
+    
+    .brand-info {
+    display: flex;
+    gap: 15px;
+    align-items: flex-start;
+    }
+
+    .footer-info-text {
+    margin-left: -110px; /* Geser seluruh teks ke kiri */
+    }
+
+    .social-icons {
+    margin-top: 10px;
+    display: flex;
+    gap: 10px;
+    font-size: 18px;
+    color: #666;
+    }
+
+    .social-icons i:hover {
+    color: #2897ff;
+    cursor: pointer;
+    }
+
+    .footer-bottom {
+    background-color: #2897ff;
+    color: white;
+    text-align: center;
+    padding: 16px 0;
+    font-size: 14px;
+    font-weight: 500;
+    }
+
+
+    .modal {
+      display: none;
+      position: fixed;
+      z-index: 100;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      overflow: auto;
+      background-color: rgba(0, 0, 0, 0.6);
+      justify-content: center;
+      align-items: center;
+    }
+
+    .modal-content {
+      background-color: white;
+      padding: 30px;
+      border-radius: 12px;
+      text-align: center;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    }
+
+    .modal-content h2 {
+      margin-bottom: 20px;
+      color: #1e88e5;
+    }
+
+    .modal-content button {
+    margin: 10px;
+    padding: 10px 20px;
+    font-weight: 600;
+    font-size: 1rem;
+    border-radius: 8px;
+    border: 2px solid #1e88e5;
+    background-color: white;
+    color: #1e88e5;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    }
+
+    .modal-content button:hover {
+    background-color: #1e88e5;
+    color: white;
+    box-shadow: 0 4px 10px rgba(30, 136, 229, 0.3);
+    transform: scale(1.05);
+    }
+    .modal-content button:active {
+    transform: scale(0.95);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2) inset;
+    }
+
+
+    .btn-user,
+    .btn-pemilik {
+      background-color: #1e88e5;
+      color: white;
+    }
+
+    @media (max-width: 768px) {
+        .brand-info {
+            flex-direction: column;
+            align-items: flex-start;
+        }
+
+        .footer-container {
+            flex-direction: column;
+            align-items: flex-start;
+        }
+
+        .footer-col {
+            width: 100%;
+        }
+    }
+    .hero-banner {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  background: #f1f9ff;
+  padding: 40px 5%;
+  gap: 20px;
+  border-bottom: 2px solid #e0e0e0;
+}
+
+.hero-left {
+  flex: 1;
+  max-width: 600px;
+}
+
+.hero-left h2 {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: #1e88e5;
+  margin-bottom: 15px;
+}
+
+.hero-left p {
+  font-size: 1.1rem;
+  color: #333;
+  margin-bottom: 25px;
+  line-height: 1.6;
+}
+
+.download-buttons {
+  display: flex;
+  gap: 15px;
+}
+
+.download-icon {
+  width: 140px;
+  height: auto;
+  transition: transform 0.2s ease;
+}
+
+.download-icon:hover {
+  transform: scale(1.05);
+}
+
+.hero-overlay {
+  position: relative;
+  background: url('../GAMBAR/beranda.png') no-repeat center center;
+  background-size: cover;
+  height: 500px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  color: white;
+  padding: 20px;
+}
+
+.hero-overlay::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.4); /* gelapkan background biar teks lebih jelas */
+  z-index: 1;
+  border-radius: 0;
+}
+
+.hero-content {
+  position: relative;
+  z-index: 2;
+  max-width: 800px;
+}
+
+.hero-content h2 {
+  font-size: 2.8rem;
+  font-weight: 700;
+  margin-bottom: 15px;
+}
+
+.hero-content p {
+  font-size: 1.2rem;
+  margin-bottom: 25px;
+  line-height: 1.6;
+}
+
+.download-buttons {
+  display: flex;
+  gap: 15px;
+  justify-content: center;
+}
+
+.download-icon {
+  width: 140px;
+  height: auto;
+  transition: transform 0.2s ease;
+}
+
+.download-icon:hover {
+  transform: scale(1.05);
+}
+
+@media (max-width: 768px) {
+  .hero-overlay {
+    height: 450px;
+    padding: 30px 10px;
+  }
+
+  .hero-content h2 {
+    font-size: 2rem;
+  }
+
+  .hero-content p {
+    font-size: 1rem;
+  }
+
+  .download-icon {
+    width: 120px;
+  }
+}
+
+
+
+  </style>
+</head>
+<body>
+    <header class="custom-header">
+    <div class="header-left">
+        <img src="../GAMBAR/logo.png" alt="Logo FutsalZone" class="header-logo" />
+        <h1>FutsalZone</h1>
+    </div>
+
+    <p class="header-tagline">Main Futsal Gak Perlu Ribet, Booking Sekarang!</p>
+
+    <div class="header-buttons">
+        <button onclick="openModal('daftar')">Daftar</button>
+        <button onclick="openModal('masuk')">Masuk</button>
+    </div>
+
+    </header>
+        <section class="hero-overlay">
+        <div class="hero-content">
+            <h2>Futsal Made Easy with FutsalZone</h2>
+            <p>Temukan lapangan favoritmu, atur jadwal, dan nikmati serunya main futsal bareng teman-teman!</p>
+            <div class="download-buttons">
+            <a href="#"><img src="../GAMBAR/playstore.png" alt="Google Play" class="download-icon" /></a>
+            <a href="#"><img src="../GAMBAR/appstore.png" alt="App Store" class="download-icon" /></a>
+            </div>
+        </div>
+        </section>
+
+    <main>
+    <form class="search-form" onsubmit="return onSearch(event)">
+      <input type="text" id="fieldName" placeholder="Cari Nama Lapangan" />
+      <input type="text" id="fieldCity" placeholder="Cari Kota Lapangan" />
+      <button type="submit">Konfirmasi</button>
+      <input type="hidden" name="role" id="roleInput">
+    </form>
+    <script>
+    const urlParams = new URLSearchParams(window.location.search);
+    const role = urlParams.get('role');
+    if (role) {
+        document.getElementById('roleInput').value = role;
+    }
+    </script>
+
+    <section class="fields-section">
+      <div class="fields-grid" id="fieldsGrid">
+        <!-- Konten lapangan akan ditampilkan lewat JS -->
+      </div>
+    </section>
+  </main>
+
+  <div id="roleModal" class="modal">
+    <div class="modal-content">
+      <h2 id="modalTitle">Pilih Peran</h2>
+      <button class="btn-user" onclick="redirectTo('user')">Sebagai User</button>
+      <button class="btn-pemilik" onclick="redirectTo('pemilik')">Sebagai Penyedia Lapangan</button>
+    </div>
+  </div>
+
+  <footer class="futsal-footer">
+    <div class="footer-container">
+        <div class="footer-col company-info">
+        <div class="brand-info">
+            <img src="../GAMBAR/logof.png" alt="Logo FutsalZone" class="footer-logo" />
+            <div class="footer-info-text"> <!-- Tambahkan wrapper ini -->
+            <h3>FutsalZone</h3>
+            <p>Jl. Zebra No. 12, Palu Timur<br>Kota Palu, Sulawesi Tengah<br>Indonesia</p>
+            <p><i class="fas fa-phone-alt"></i> +62822-9010-2056</p>
+            <div class="social-icons">
+                <i class="fab fa-instagram"></i>
+                <i class="fab fa-facebook"></i>
+                <i class="fab fa-twitter"></i>
+                <i class="fab fa-linkedin"></i>
+                <i class="fab fa-tiktok"></i>
+                <i class="fab fa-youtube"></i>
+            </div>
+            </div>
+        </div>
+        </div>
+
+        <div class="footer-col">
+        <h4>Perusahaan</h4>
+        <p><a href="#">Tentang</a></p>
+        <p><a href="#">Kebijakan & Privasi</a></p>
+        <p><a href="#">Syarat dan Ketentuan</a></p>
+        </div>
+
+        <div class="footer-col">
+        <h4>Ekosistem</h4>
+        <p><a href="#">Sparring</a></p>
+        <p><a href="#">Main Bareng</a></p>
+        <p><a href="#">Direktori Tim</a></p>
+        <p><a href="#">Direktori Lapangan</a></p>
+        </div>
+
+        <div class="footer-col">
+        <h4>Hubungi Kami</h4>
+        <p><a href="#">Kontak</a></p>
+        </div>
+
+        <div class="footer-col">
+        <h4>Unduh Aplikasi</h4>
+        <i class="fab fa-apple fa-2x"></i>
+        </div>
+    </div>
+
+    <div class="footer-bottom">
+        &copy; 2025 FutsalZone. All rights reserved.
+    </div>
+    </footer>
+
+
+<script>
+  const futsalFields = [
+    {
+      name: 'Futsal Arena Palu',
+      city: 'Palu',
+      price: 100000,
+      image: '../GAMBAR/lapangan3.jpg',
+      address: 'Jl. Zebra No.12, Palu Timur'
+    },
+    {
+      name: 'Gor Mitra Futsal',
+      city: 'Palu',
+      price: 95000,
+      image: '../GAMBAR/lapangan4.jpg',
+      address: 'Jl. Rajawali No.3, Palu Barat'
+    },
+    {
+      name: 'Mega Futsal Center',
+      city: 'Palu',
+      price: 110000,
+      image: '../GAMBAR/lapangan5.jpg',
+      address: 'Jl. Dewi Sartika No.45, Palu Selatan'
+    },
+    {
+      name: 'Victory Futsal',
+      city: 'Palu',
+      price: 105000,
+      image: '../GAMBAR/lapangan1.jpg',
+      address: 'Jl. Pattimura No.18, Palu Barat'
+    },
+    {
+      name: 'Galaxy Futsal Palu',
+      city: 'Palu',
+      price: 90000,
+      image: '../GAMBAR/lapangan2.jpg',
+      address: 'Jl. Thamrin No.25, Palu Utara'
+    },
+    {
+      name: 'FutsalZone Court',
+      city: 'Palu',
+      price: 120000,
+      image: '../GAMBAR/lapangan5.jpg',
+      address: 'Jl. Juanda No.6, Palu Timur'
+    }
+  ];
+
+  function formatPrice(price) {
+    return new Intl.NumberFormat('id-ID', { style: 'currency', currency: 'IDR' }).format(price);
+  }
+
+  function renderFields(fields) {
+    const container = document.getElementById('fieldsGrid');
+    container.innerHTML = '';
+    if (fields.length === 0) {
+      container.innerHTML = '<p style="text-align:center; color:#888;">Tidak ada lapangan ditemukan.</p>';
+      return;
+    }
+    fields.forEach(field => {
+      const card = document.createElement('div');
+      card.className = 'field-card';
+      card.innerHTML = `
+        <div class="field-image" style="background-image:url('${field.image}')"></div>
+        <div class="field-info">
+          <h2 class="field-name">${field.name}</h2>
+          <p class="field-location">${field.address}</p>
+          <p class="field-price">${formatPrice(field.price)} / jam</p>
+        </div>
+      `;
+      container.appendChild(card);
+    });
+  }
+
+  function onSearch(event) {
+    event.preventDefault();
+    const name = document.getElementById('fieldName').value.trim().toLowerCase();
+    const city = document.getElementById('fieldCity').value.trim().toLowerCase();
+    const filtered = futsalFields.filter(f =>
+      (!name || f.name.toLowerCase().includes(name)) &&
+      (!city || f.city.toLowerCase().includes(city))
+    );
+    renderFields(filtered);
+  }
+
+  renderFields(futsalFields);
+
+  let currentAction = '';
+
+  function openModal(action) {
+    currentAction = action;
+    document.getElementById('modalTitle').innerText =
+      `Pilih Peran untuk ${action === 'daftar' ? 'Daftar' : 'Masuk'}`;
+    document.getElementById('roleModal').style.display = 'flex';
+  }
+
+    function redirectTo(role) {
+    let url = '';
+
+    if (currentAction === 'daftar') {
+        url = role === 'pemilik' ? 'daftar_pemilik.html' : 'daftar.html';
+    } else {
+        url = role === 'pemilik' ? 'masuk_pemilik.html' : 'masuk.html';
+    }
+
+    window.location.href = url;
+    }
+
+  // Tutup modal jika klik di luar
+  window.onclick = function (e) {
+    const modal = document.getElementById('roleModal');
+    if (e.target === modal) {
+      modal.style.display = 'none';
+    }
+  };
+</script>

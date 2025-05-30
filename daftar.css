@@ -1,0 +1,73 @@
+body {
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    background: linear-gradient(to bottom, #66a6ff, #0066cc); /* disamakan dengan login */
+}
+
+.container {
+    background-color: white;
+    padding: 25px 30px; /* padding atas-bawah 25px, kiri-kanan 30px */
+    border-radius: 15px;
+    box-shadow: 0 2px 15px rgba(0, 0, 0, 0.25);
+    text-align: center;
+    width: 480px; /* lebih lebar dari sebelumnya */
+    max-height: 85vh; /* batasi tinggi agar tidak kepanjangan */
+    overflow-y: auto; /* jika terlalu banyak konten bisa scroll */
+}
+
+
+
+.logo {
+    width: 200px;
+    height: auto;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 1px;
+}
+
+h1 {
+    margin: 10px 0 20px;
+    font-size: 26px;
+}
+
+input {
+    width: 100%;
+    padding: 12px 10px;      /* tinggi & ruang horizontal */
+    margin: 10px 0;
+    border: 2px solid #4dd0e1;
+    border-radius: 8px;
+    box-sizing: border-box;
+    font-size: 15px;
+}
+
+
+.password-container {
+    position: relative;
+}
+
+.toggle-password {
+    position: absolute;
+    right: 10px;
+    top: 12px;
+    cursor: pointer;
+}
+
+button {
+    background-color: #66a6ff;
+    color: white;
+    padding: 12px;
+    border: none;
+    border-radius: 6px;
+    margin-top: 10px;
+    cursor: pointer;
+    width: 100%;
+    font-size: 15px;
+}
+
+button:hover {
+    background-color: #016894;
+}

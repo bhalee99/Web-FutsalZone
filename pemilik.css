@@ -1,0 +1,105 @@
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background: #f4f4f4;
+}
+
+header {
+  background-color: #007bff;
+  color: white;
+  padding: 15px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+header h1 {
+  margin: 0;
+  font-size: 1.5em;
+}
+
+.icons {
+  display: flex;
+  align-items: center;
+}
+
+.icons img {
+  width: 32px;
+  height: 32px;
+  margin-left: 15px;
+  cursor: pointer;
+}
+
+main {
+  padding: 20px;
+}
+
+#daftarLapangan {
+  margin-bottom: 30px;
+}
+
+.lapangan {
+  display: flex;
+  background: white;
+  margin-bottom: 15px;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.lapangan img {
+  width: 150px;
+  height: 100%;
+  object-fit: cover;
+}
+
+.lapangan .info {
+  padding: 15px;
+}
+
+#formTambahLapangan form {
+  background: white;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+#formTambahLapangan label {
+  display: block;
+  margin-bottom: 10px;
+}
+
+#formTambahLapangan input {
+  width: 100%;
+  padding: 8px;
+  margin-top: 3px;
+  box-sizing: border-box;
+}
+
+#formTambahLapangan button {
+  margin-top: 10px;
+  background-color: #007bff;
+  color: white;
+  padding: 10px 15px;
+  border: none;
+  cursor: pointer;
+  border-radius: 5px;
+}
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px;
+  background-color: #007bff;
+  color: white;
+  border-radius: 0 0 10px 10px;
+}
+
+.profile-icon img {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: 2px solid white;
+  cursor: pointer;
+}

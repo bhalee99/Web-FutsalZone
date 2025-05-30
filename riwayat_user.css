@@ -1,0 +1,216 @@
+/* ======== DASAR & UMUM ======== */
+body {
+  font-family: 'Poppins', sans-serif;
+  margin: 0;
+  background: white; /* Ubah jadi putih */
+  color: #333;
+}
+
+/* ======== HEADER ======== */
+.custom-header {
+  background-color: #2196f3;
+  color: white;
+  padding: 20px 40px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.header-left {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.header-logo {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  object-fit: contain;
+  background: white;
+  padding: 5px;
+}
+
+.header-left h1 {
+  font-size: 26px;
+  margin: 0;
+}
+
+/* ======== LINK BERANDA TANPA BACKGROUND ======== */
+.btn-beranda {
+  color: white;
+  font-weight: bold;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 16px;
+  padding: 6px 12px;
+}
+
+.btn-beranda:hover {
+  text-decoration: underline;
+}
+
+/* ======== KONTEN UTAMA ======== */
+.transaksi-container {
+  max-width: 1100px;
+  margin: 40px auto;
+  padding: 0 20px 40px;
+}
+
+.transaksi-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 30px;
+}
+
+@media (max-width: 768px) {
+  .transaksi-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+h2 {
+  color: #1565c0;
+  margin-top: 40px;
+  font-size: 22px;
+  border-left: 5px solid #2196f3;
+  padding-left: 10px;
+}
+
+/* ======== KARTU TRANSAKSI ======== */
+.transaksi-card {
+  background: #f9f9f9;
+  border: 1px solid #ddd;
+  padding: 20px 25px;
+  border-radius: 10px;
+  margin-top: 20px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+  transition: transform 0.2s ease;
+}
+
+.transaksi-card:hover {
+  transform: translateY(-3px);
+}
+
+.transaksi-card h3 {
+  margin: 0 0 10px;
+  color: #1e88e5;
+}
+
+.transaksi-card p {
+  margin: 8px 0;
+  color: #444;
+  font-size: 15px;
+}
+
+/* ======== STATUS ======== */
+.status-menunggu {
+  background-color: #fff3cd;
+  color: #f57f17;
+  padding: 4px 10px;
+  border-radius: 6px;
+  display: inline-block;
+  font-weight: bold;
+}
+
+.status-diterima {
+  background-color: #c8e6c9;
+  color: #2e7d32;
+  padding: 4px 10px;
+  border-radius: 6px;
+  display: inline-block;
+  font-weight: bold;
+}
+
+.status-ditolak {
+  background-color: #ffcdd2;
+  color: #c62828;
+  padding: 4px 10px;
+  border-radius: 6px;
+  display: inline-block;
+  font-weight: bold;
+}
+
+/* ======== LAINNYA ======== */
+.kosong {
+  color: #888;
+  font-style: italic;
+  margin-left: 10px;
+}
+
+.kembali {
+  text-align: center;
+  margin-top: 40px;
+}
+
+.btn-kembali {
+  display: inline-block;
+  background: #1e88e5;
+  color: white;
+  padding: 10px 24px;
+  text-decoration: none;
+  border-radius: 8px;
+  font-weight: bold;
+  transition: background 0.3s;
+}
+
+.btn-kembali:hover {
+  background: #1565c0;
+}
+
+.custom-header {
+  background-color: #2196f3;
+  color: white;
+  padding: 10px 40px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.header-top {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.header-left {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.header-logo {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background: white;
+  padding: 4px;
+}
+
+.btn-beranda {
+  color: white;
+  font-weight: bold;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+    font-size: 20px;
+}
+
+.judul-tengah {
+  width: 100%;
+  margin-top: 15px;
+  text-align: center;
+}
+
+.judul-tengah h2 {
+  font-size: 32px;
+  font-weight: 700;
+  color: white;
+  margin: 10px 0;
+  text-shadow: 1px 1px 2px rgba(0,0,0,0.2); /* biar lebih jelas di background biru */
+}

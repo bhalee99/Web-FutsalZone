@@ -1,0 +1,208 @@
+body {
+  font-family: 'Poppins', sans-serif;
+  margin: 0;
+  background: #f0f4f9;
+  color: #333;
+}
+
+.header-right a {
+  color: rgb(255, 255, 255); /* Ganti ke warna yang kamu inginkan */
+  font-weight: 500;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.header-right a:hover {
+  color: white; /* Warna saat hover */
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  font-size: 20px;
+  font-weight: bold;
+}
+
+
+nav a {
+  color: white;
+  text-decoration: none;
+  margin-left: 20px;
+  font-weight: 500;
+  transition: border-bottom 0.3s;
+}
+
+nav a:hover, nav a.active {
+  border-bottom: 2px solid white;
+}
+
+main {
+  max-width: 1200px;
+  margin: 40px auto;
+  padding: 0 20px;
+}
+
+.header-center {
+  font-size: 50px; /* Ukuran teks diperbesar */
+  font-weight: bold;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* Ganti font */
+  color: white;
+  margin: 0;
+}
+
+.header-flex {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #007bff;
+  padding: 15px 30px;
+  flex-wrap: wrap;
+  color: white;
+}
+
+.header-left,
+.header-center,
+.header-right {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.header-left {
+  justify-content: flex-start;
+}
+
+.header-right {
+  justify-content: flex-end;
+}
+
+.logo-icon {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  margin-right: 20px;
+}
+
+.brand-name {
+  font-size: 22px;
+  font-weight: bold;
+}
+
+.judul-header {
+  font-size: 30px;
+  font-weight: bold;
+  margin: 0;
+  color: white;
+}
+
+
+.section h2 {
+  font-size: 22px;
+  color: #0056b3;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 15px;
+}
+
+.table-responsive {
+  overflow-x: auto;
+  background: white;
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+  padding: 20px;
+  margin-bottom: 50px;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 15px;
+}
+
+thead {
+  background-color: #e4f0ff;
+}
+
+th, td {
+  padding: 12px 14px;
+  text-align: left;
+  border-bottom: 1px solid #ddd;
+}
+
+tbody tr:nth-child(even) {
+  background-color: #f9f9f9;
+}
+
+.bukti-img {
+  width: 60px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.1);
+}
+
+.aksi-form {
+  display: flex;
+  gap: 6px;
+}
+
+.btn {
+  padding: 6px 12px;
+  font-size: 14px;
+  border: none;
+  border-radius: 6px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.btn-accept {
+  background-color: #28a745;
+  color: white;
+}
+
+.btn-accept:hover {
+  background-color: #218838;
+}
+
+.btn-reject {
+  background-color: #dc3545;
+  color: white;
+}
+
+.btn-reject:hover {
+  background-color: #c82333;
+}
+
+.status {
+  display: inline-block;
+  padding: 6px 10px;
+  border-radius: 6px;
+  font-weight: bold;
+  text-transform: uppercase;
+  font-size: 13px;
+}
+
+.status.Diterima {
+  background-color: #28a745;
+  color: white;
+  padding: 6px 10px;
+  border-radius: 6px;
+  font-weight: bold;
+  display: inline-block;
+  text-align: center;
+  min-width: 80px;
+}
+
+.status.Ditolak {
+  background-color: #dc3545;
+  color: white;
+  padding: 6px 10px;
+  border-radius: 6px;
+  font-weight: bold;
+  display: inline-block;
+  text-align: center;
+  min-width: 80px;
+}
+
